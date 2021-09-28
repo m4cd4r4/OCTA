@@ -21,7 +21,7 @@ import pyautogui
 for i in range(304):                        # number of b-scans per volume
     time.sleep(2)                           # time to minimise any pop-ups & to click near the b-scan scroll bar
     pyautogui.press('printscreen')
-    time.sleep(.5)                          # a little time for the OS to open the printscreen
+    time.sleep(.5)                          # a little time for the OS to open the image for confirmation
     pyautogui.press('f2')
     time.sleep(.2)
     pyautogui.press('down')
