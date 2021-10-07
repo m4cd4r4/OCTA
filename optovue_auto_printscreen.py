@@ -1,4 +1,9 @@
-"""
+""" 
+OptoVue - Optical Coherance Tomography imaging station
+
+This script automates the tedius task of saving each slice of a 304-slice volume
+PyAutoGui allows for the selection of specific regions on-screen, combined with mouse strokes & keyboard combinations
+
 Prerequisites:
 pip install pythonautogui
 https://gadwin.com/printscreen/ 
@@ -18,9 +23,11 @@ Choose TIFF, BMP, JPEG etc
 import time
 import pyautogui
 
-for i in range(304):                        # number of b-scans per volume
-    time.sleep(2)                           # time to minimise any pop-ups & to click near the b-scan scroll bar
-    pyautogui.press('printscreen')
+time.sleep(2)                           # Time to click on the screen, so that the "Down" command works to move the B-Scan slider
+for i in range(3):                        # number of b-scans per volume
+                             
+    im = pyautogui.screenshot()
+    im.save('vol1_' + str(i) + '.png')
     time.sleep(.5)                          # a little time for the OS to open the image for confirmation
     pyautogui.press('f2')
     time.sleep(.2)
